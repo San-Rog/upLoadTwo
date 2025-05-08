@@ -6,11 +6,9 @@ import datetime
 from datetime import date
 from datetime import timedelta
 from io import BytesIO
-#import pyperclip
 from os import path
 import os
-#import psutil
-#import keyboard
+from pynput.keyboard import Key, Controller
 import streamlit.components.v1 as components
 
 def countCurUseFul(dateTuple):
@@ -112,10 +110,10 @@ def toClip():
     #st.write(pyperclip.paste())
 
 def exitApp():
-    keyboard.press_and_release('ctrl+w')
-    pid = os.getpid()
-    p = psutil.Process(pid)
-    p.terminate()
+    keyboard = Controller()
+    with keyboard.pressed(Key.ctrl):
+        keyboard.press('w')
+        keyboard.release('w')
             
 def iniVars():
     labels = {'csv':['dfTable.csv', "Download da tabela para o formato 'csv'.", ":material/download:"], 

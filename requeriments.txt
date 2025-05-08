@@ -6,4 +6,4 @@ datetime
 io
 pyperclip=1.9.0
 psutil=7.0.0
-keyboard
+keyboard=0.13.5

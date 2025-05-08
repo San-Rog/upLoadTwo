@@ -4,4 +4,4 @@ pandas
 streamlit
 datetime
 io
-pyperclip
+pyperclip=1.9.0

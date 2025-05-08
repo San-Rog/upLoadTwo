@@ -6,7 +6,7 @@ import datetime
 from datetime import date
 from datetime import timedelta
 from io import BytesIO
-import pyperclip
+#import pyperclip
 from os import path
 import os
 import psutil

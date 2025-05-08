@@ -9,7 +9,7 @@ from io import BytesIO
 #import pyperclip
 from os import path
 import os
-import psutil
+#import psutil
 import keyboard
 import streamlit.components.v1 as components
 

@@ -8,8 +8,8 @@ from datetime import timedelta
 from io import BytesIO
 from os import path
 import os
-from pynput.keyboard import Key, Controller
 import streamlit.components.v1 as components
+import pyautogui
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]
@@ -110,11 +110,8 @@ def toClip():
     #st.write(pyperclip.paste())
 
 def exitApp():
-    keyboard = Controller()
-    with keyboard.pressed(Key.ctrl):
-        keyboard.press('w')
-        keyboard.release('w')
-            
+    pyautogui.hotkey('ctrl','w')
+        
 def iniVars():
     labels = {'csv':['dfTable.csv', "Download da tabela para o formato 'csv'.", ":material/download:"], 
               'pickle': ['dfTable.pkl', "Download da tabela para o formato 'pickle'.", ":material/download:"], 

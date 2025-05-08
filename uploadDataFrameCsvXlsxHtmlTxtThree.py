@@ -9,7 +9,6 @@ from io import BytesIO
 from os import path
 import os
 import streamlit.components.v1 as components
-import pyautogui
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]
@@ -105,27 +104,19 @@ def toTex():
 def toStata(fileDta):
     dta = df.to_stata(fileDta)
 
-def toClip():
-    pyper = df.to_clipboard(sep=',', index=False) 
-    #st.write(pyperclip.paste())
-
-def exitApp():
-    pyautogui.hotkey('ctrl','w')
-        
 def iniVars():
     labels = {'csv':['dfTable.csv', "Download da tabela para o formato 'csv'.", ":material/download:"], 
               'pickle': ['dfTable.pkl', "Download da tabela para o formato 'pickle'.", ":material/download:"], 
               'html': ['dfTable.html', "Download da tabela para o formato 'html'.", ":material/download:"], 
               'txt': ['dfTable.txt', "Download da tabela para o formato 'txt'.", ":material/download:"], 
               'json': ['dfTable.json', "Download da tabela para o formato 'json'.", ":material/download:"], 
-              'latex': ['dfTable.tex', "Download da tabela para o formato 'tex'.", ":material/download:"], 
-              'clipboard': ['', "Envia a tabela para sua área de transferência.", ":material/assignment:"], 
-              'saída': ['', "Sai do aplicativo.", ":material/logout:"]}
+              'latex': ['dfTable.tex', "Download da tabela para o formato 'tex'.", ":material/download:"]
+             }
     keys = list(labels.keys())
     with st.container(border=False):
         st.markdown(f":point_right: **:blue[opções]**")
         #Csv
-        colCsv, colPkl, colHtml, colString = st.columns(spec=4, gap='small', vertical_alignment='center', border=False)
+        colCsv, colPkl, colHtml = st.columns(spec=3, gap='small', vertical_alignment='center', border=False)
         colCsv.download_button(
             label=keys[0],
             use_container_width=True, 
@@ -163,7 +154,7 @@ def iniVars():
             help=labels[keys[3]][1], 
             icon=labels[keys[3]][2]
         )
-        colJson, colLatex, colClip, colExit = st.columns(spec=4, gap='small', vertical_alignment='top', border=False)
+        colString, colJson, colLatex = st.columns(spec=3, gap='small', vertical_alignment='top', border=False)
         #Json
         colJson.download_button(
             label=keys[4],
@@ -181,21 +172,8 @@ def iniVars():
             file_name=labels[keys[5]][0], 
             help=labels[keys[5]][1], 
             icon=labels[keys[5]][2]
-        )    
-        #área de colagem - clipboard
-        if colClip.button(
-            label=keys[6], 
-            use_container_width=True,
-            help=labels[keys[6]][1], icon=labels[keys[6]][2]):
-                toClip()
+        )
         
-        #Saída
-        if colExit.button(
-            label=keys[7], 
-            use_container_width=True, 
-            help=labels[keys[7]][1], icon=labels[keys[7]][2]):
-            exitApp()  
-    
 def main():
     global output, dirRoot
     global keyCurrent, keyUseFul

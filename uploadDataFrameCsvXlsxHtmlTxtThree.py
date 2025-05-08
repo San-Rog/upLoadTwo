@@ -117,6 +117,7 @@ def iniVars():
         st.markdown(f":point_right: **:blue[opções]**")
         #Csv
         colCsv, colPkl, colHtml = st.columns(spec=3, gap='small', vertical_alignment='center', border=False)
+        colString, colJson, colLatex = st.columns(spec=3, gap='small', vertical_alignment='top', border=False)
         colCsv.download_button(
             label=keys[0],
             use_container_width=True, 
@@ -154,7 +155,6 @@ def iniVars():
             help=labels[keys[3]][1], 
             icon=labels[keys[3]][2]
         )
-        colString, colJson, colLatex = st.columns(spec=3, gap='small', vertical_alignment='top', border=False)
         #Json
         colJson.download_button(
             label=keys[4],

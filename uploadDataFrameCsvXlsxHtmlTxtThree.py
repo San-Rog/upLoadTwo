@@ -25,7 +25,7 @@ def countCurUseFul(dateTuple):
     mode = dateTuple[2]
     expr = dateTuple[3]
     dateIniStr = dateIni.strftime("%d/%m/%Y")
-    dateFullLang(dateIniStr)
+    dateFullLang(dateIni)
     dateIniName = dateIni.strftime("%#d de %B de %Y")
     data_atual = datetime.datetime.today()
     st.write(data_atual.day)

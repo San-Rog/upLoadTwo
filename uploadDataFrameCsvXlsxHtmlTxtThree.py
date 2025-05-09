@@ -233,8 +233,8 @@ def main():
     dateCurrUse = {key:[] for key in keyCurrent}
     months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5:'maio', 6: 'junho', 
               7: 'julho', 8: 'agosto', 9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
-    weeks = {0: 'domingo', 1: 'segunda-feira', 3: 'terça-feira', 
-             4: 'quarta-feira', 5: 'sexta-feira', 6: 'domingo'}
+    weeks = {0: 'domingo', 1: 'segunda-feira', 2: 'terça-feira', 
+             3: 'quarta-feira', 4: 'sexta-feira', 5: 'domingo'}
     dateNow = datetime.date.today()
     d = date(2025, 5, 9)
     #args = [(d, 12, 0, 'Contagem em dias corridos', 'Demonstrativo 1'), 

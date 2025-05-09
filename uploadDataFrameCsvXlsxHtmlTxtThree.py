@@ -10,6 +10,9 @@ from os import path
 import os
 import streamlit.components.v1 as components
 
+def datePt():
+    pass
+
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]
     num = dateTuple[1]
@@ -19,6 +22,8 @@ def countCurUseFul(dateTuple):
     dateIniName = dateIni.strftime("%#d de %B de %Y")
     data_atual = datetime.datetime.today()
     st.write(data_atual.day)
+    st.write(data_atual.month)
+    st.write(data_atual.year)
     count = 0 
     n = 0 
     colStart, colDays, colCrit = st.columns(spec=3, gap='small', vertical_alignment='top', border=True)

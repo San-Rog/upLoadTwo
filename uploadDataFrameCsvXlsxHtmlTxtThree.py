@@ -122,7 +122,7 @@ def iniVars():
               'json': ['dfTable.json', "Download da tabela para o formato 'json'.", ":material/download:"], 
               'latex': ['dfTable.tex', "Download da tabela para o formato 'tex'.", ":material/download:"], 
               'clipboard': ['', "Envia os dados da tabela para a área de transferência.", ":material/assignment:"], 
-              'clear': ['', "Limpa a área de transferência.", ":material/mpo:"]
+              'clear': ['', "Limpa a área de transferência.", ":material/mop:"]
              }
     keys = list(labels.keys())
     with st.container(border=False):

@@ -226,10 +226,8 @@ def main():
     keyCurrent = ['dia do mês', 'dias da semana', 
                   'condição', 'sequencial', 'contador geral']
     dateCurrUse = {key:[] for key in keyCurrent}
-    months = {1: 'janeiro', 2: fevereiro', 3: 'março', 
-              4: 'abril', 5:'maio', 6: 'junho', 
-              7: 'julho', 8: 'agosto', 9: 'setembro', 
-              10: 'outubro', 11: 'novembro', 12: 'dezembro'}
+    months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5:'maio', 6: 'junho', 
+              7: 'julho', 8: 'agosto', 9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
     weeks = {0: 'domingo', 1: 'segunda-feira', 3: 'terça-feira', 
             4: 'quarta-feira', 5: 'sexta-feira', 6: 'domingo'}
     dateNow = datetime.date.today()

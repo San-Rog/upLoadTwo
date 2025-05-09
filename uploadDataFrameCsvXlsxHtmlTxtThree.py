@@ -17,6 +17,7 @@ def countCurUseFul(dateTuple):
     expr = dateTuple[3]
     dateIniStr = dateIni.strftime("%d/%m/%Y")
     dateIniName = dateIni.strftime("%#d de %B de %Y")
+    st.write(dateIni.strftime("%#d))
     count = 0 
     n = 0 
     colStart, colDays, colCrit = st.columns(spec=3, gap='small', vertical_alignment='top', border=True)

@@ -119,6 +119,7 @@ def toOutClip():
     </script>
     """
     txt = components.html(jsHtml)
+    st.write(txt)
     return txt
     
 def iniVars():

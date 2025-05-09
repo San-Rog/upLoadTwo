@@ -106,7 +106,7 @@ def toInClip(mode):
         txt = df.to_string(index=False).encode('ISO-8859-1') 
     else:
         txt = ''
-    st.write(txt)
+    #st.write(txt)
     codeJs = f"""navigator.clipboard.writeText({txt});"""
     jsHtml = f"""
     <script>

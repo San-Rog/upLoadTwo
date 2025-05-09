@@ -69,7 +69,7 @@ def toPickle():
     return pkl
 
 def toHtml():
-    htmlText = df.to_html(index=False)
+    htmlText = df.to_html(index=False).encode('ISO-8859-1')
     hmtlPlus = """
     <style>
         .button {
@@ -102,23 +102,29 @@ def toTex():
     tex = df.to_latex()
     return tex
 
-def toStata(fileDta):
-    dta = df.to_stata(fileDta)
+def toClip():
+    txt = df.to_string(index=False).encode('ISO-8859-1')
+    clipboard.copy(txt)
 
+def toErase():
+    clipboard.copy('')
+    
 def iniVars():
     labels = {'csv':['dfTable.csv', "Download da tabela para o formato 'csv'.", ":material/download:"], 
               'pickle': ['dfTable.pkl', "Download da tabela para o formato 'pickle'.", ":material/download:"], 
               'html': ['dfTable.html', "Download da tabela para o formato 'html'.", ":material/download:"], 
               'txt': ['dfTable.txt', "Download da tabela para o formato 'txt'.", ":material/download:"], 
               'json': ['dfTable.json', "Download da tabela para o formato 'json'.", ":material/download:"], 
-              'latex': ['dfTable.tex', "Download da tabela para o formato 'tex'.", ":material/download:"]
+              'latex': ['dfTable.tex', "Download da tabela para o formato 'tex'.", ":material/download:"], 
+              'clipboard': ['', "Envia os dados da tabela para a área de transferência.", ":material/assignment:"], 
+              'clear': ['', "Limpa todos os dados da área de transferência.", ":material/mop:"]
              }
     keys = list(labels.keys())
     with st.container(border=False):
         st.markdown(f":point_right: **:blue[opções]**")
         #Csv
-        colCsv, colPkl, colHtml = st.columns(spec=3, gap='small', vertical_alignment='center', border=False)
-        colString, colJson, colLatex = st.columns(spec=3, gap='small', vertical_alignment='top', border=False)
+        colCsv, colPkl, colHtml, colString = st.columns(spec=4, gap='small', vertical_alignment='center', border=False)
+        colJson, colLatex, colClip, colErase = st.columns(spec=3, gap='small', vertical_alignment='top', border=False)
         colCsv.download_button(
             label=keys[0],
             use_container_width=True, 
@@ -174,6 +180,22 @@ def iniVars():
             help=labels[keys[5]][1], 
             icon=labels[keys[5]][2]
         )
+        #Clipboard
+        if colClip.button(
+            label=keys[6],
+            use_container_width=True,
+            help=labels[keys[6]][1], 
+            icon=labels[keys[6]][2]
+        ):
+            toClip()
+        #Erase
+        if colErase.button(
+            label=keys[7],
+            use_container_width=True,
+            help=labels[keys[7]][1], 
+            icon=labels[keys[7][2]
+        ):
+            toErase()
         
 def main():
     global output, dirRoot

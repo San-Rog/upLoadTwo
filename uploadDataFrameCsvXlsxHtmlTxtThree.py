@@ -9,7 +9,6 @@ from io import BytesIO
 from os import path
 import os
 import streamlit.components.v1 as components
-import clipboard
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]
@@ -104,10 +103,10 @@ def toTex():
 
 def toClip():
     txt = df.to_string(index=False).encode('ISO-8859-1')
-    clipboard.copy(txt)
+    copykitten.copy(txt)
 
 def toErase():
-    clipboard.copy('')
+    copykitten.copy('')
     
 def iniVars():
     labels = {'csv':['dfTable.csv', "Download da tabela para o formato 'csv'.", ":material/download:"], 

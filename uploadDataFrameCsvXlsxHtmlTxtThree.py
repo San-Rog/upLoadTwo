@@ -10,8 +10,8 @@ from os import path
 import os
 import streamlit.components.v1 as components
 
-def datePt():
-    pass
+def dateFullLang():
+    
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]
@@ -24,6 +24,7 @@ def countCurUseFul(dateTuple):
     st.write(data_atual.day)
     st.write(data_atual.month)
     st.write(data_atual.year)
+    st.write(data_atual.strftime("%w"))
     count = 0 
     n = 0 
     colStart, colDays, colCrit = st.columns(spec=3, gap='small', vertical_alignment='top', border=True)
@@ -214,9 +215,12 @@ def main():
     global output, dirRoot
     global keyCurrent, keyUseFul
     global dateCurrUse, df
+    global months, weeks
     keyCurrent = ['dia do mês', 'dias da semana', 
                   'condição', 'sequencial', 'contador geral']
     dateCurrUse = {key:[] for key in keyCurrent}
+    months = {}
+    weeks = {}
     dateNow = datetime.date.today()
     d = date(2025, 5, 9)
     #args = [(d, 12, 0, 'Contagem em dias corridos', 'Demonstrativo 1'), 

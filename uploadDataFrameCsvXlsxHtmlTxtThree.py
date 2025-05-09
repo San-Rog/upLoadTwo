@@ -17,7 +17,9 @@ def dateFullLang(date):
     yearStr = date.year
     weekNum = int(date.strftime("%w"))
     weekStr = weeks[weekNum]
+    dateFull = f'{dayStr} de {monthStr} de {yearStr}'
     st.write(dayStr, monthStr, yearStr, weekNum, weekStr)
+    return dateFull
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]
@@ -26,7 +28,8 @@ def countCurUseFul(dateTuple):
     expr = dateTuple[3]
     dateIniStr = dateIni.strftime("%d/%m/%Y")
     dateFullLang(dateIni)
-    dateIniName = dateIni.strftime("%#d de %B de %Y")
+    #dateIniName = dateIni.strftime("%#d de %B de %Y")
+    dateIniName = dateFullLang(dateIni)
     data_atual = datetime.datetime.today()
     st.write(data_atual.day)
     st.write(data_atual.month)

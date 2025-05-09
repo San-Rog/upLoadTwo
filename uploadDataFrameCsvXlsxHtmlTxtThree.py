@@ -11,7 +11,7 @@ import os
 import streamlit.components.v1 as components
 
 def dateFullLang():
-    
+    pass
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]

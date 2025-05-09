@@ -3,7 +3,7 @@ import locale
 import pandas as pd
 import streamlit as st
 import datetime
-import pyperclip
+import clipboard
 from datetime import date
 from datetime import timedelta
 from io import BytesIO

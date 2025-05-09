@@ -11,16 +11,13 @@ import os
 import streamlit.components.v1 as components
 
 def dateFullLang(date, mode):
-    st.write(date)
     dayStr = date.day
     monthNum = date.month
     monthStr = months[monthNum]
     yearStr = date.year
     weekNum = date.weekday()
-    st.write(weekNum)
     weekStr = weeks[weekNum]
     dateFull = f'{dayStr} de {monthStr} de {yearStr}'
-    st.write(dayStr, monthStr, yearStr, weekNum, weekStr)
     if mode == 0:
         return dateFull
     else:

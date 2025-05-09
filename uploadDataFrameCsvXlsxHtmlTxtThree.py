@@ -100,13 +100,6 @@ def toJson():
 def toTex():
     tex = df.to_latex()
     return tex
-
-def toClip():
-    txt = df.to_string(index=False).encode('ISO-8859-1')
-    copykitten.copy(txt)
-
-def toErase():
-    copykitten.copy('')
     
 def iniVars():
     labels = {'csv':['dfTable.csv', "Download da tabela para o formato 'csv'.", ":material/download:"], 
@@ -122,8 +115,8 @@ def iniVars():
     with st.container(border=False):
         st.markdown(f":point_right: **:blue[opções]**")
         #Csv
-        colCsv, colPkl, colHtml, colString = st.columns(spec=4, gap='small', vertical_alignment='center', border=False)
-        colJson, colLatex, colClip, colErase = st.columns(spec=4, gap='small', vertical_alignment='top', border=False)
+        colCsv, colPkl, colHtml = st.columns(spec=3, gap='small', vertical_alignment='center', border=False)
+        colString, colJson, colLatex = st.columns(spec=3, gap='small', vertical_alignment='top', border=False)
         colCsv.download_button(
             label=keys[0],
             use_container_width=True, 
@@ -179,22 +172,6 @@ def iniVars():
             help=labels[keys[5]][1], 
             icon=labels[keys[5]][2]
         )
-        #Clipboard
-        if colClip.button(
-            label=keys[6],
-            use_container_width=True,
-            help=labels[keys[6]][1], 
-            icon=labels[keys[6]][2]
-        ):
-            toClip()
-        #Erase
-        if colErase.button(
-            label=keys[7],
-            use_container_width=True,
-            help=labels[keys[7]][1], 
-            icon=labels[keys[7]][2]
-        ):
-            toErase()
         
 def main():
     global output, dirRoot
@@ -224,7 +201,4 @@ def main():
     iniVars()    
 
 if __name__ == '__main__':
-    #locale.setlocale(locale.LC_ALL, 'pt_PT.UTF-8')
-    import copykitten
-    copykitten.copy("Este é um exemplo com copykitten")
     main()

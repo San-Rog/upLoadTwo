@@ -10,7 +10,7 @@ from os import path
 import os
 import streamlit.components.v1 as components
 
-def dateFullLang(date):
+def dateFullLang(date, mode):
     st.write(date)
     dayStr = date.day
     monthNum = date.month
@@ -21,7 +21,10 @@ def dateFullLang(date):
     weekStr = weeks[weekNum]
     dateFull = f'{dayStr} de {monthStr} de {yearStr}'
     st.write(dayStr, monthStr, yearStr, weekNum, weekStr)
-    return dateFull
+    if mode == 0:
+        return dateFull
+    else:
+        return (dateFull, weekStr)
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]
@@ -29,9 +32,7 @@ def countCurUseFul(dateTuple):
     mode = dateTuple[2]
     expr = dateTuple[3]
     dateIniStr = dateIni.strftime("%d/%m/%Y")
-    dateFullLang(dateIni)
-    #dateIniName = dateIni.strftime("%#d de %B de %Y")
-    dateIniName = dateFullLang(dateIni)
+    dateIniName = dateFullLang(dateIni, 0)
     data_atual = datetime.datetime.today()
     st.write(data_atual.day)
     st.write(data_atual.month)
@@ -45,11 +46,13 @@ def countCurUseFul(dateTuple):
     colCrit.markdown(f"**Critério**: ***:blue-background[{expr}]***")
     while count < num:
         dateNew = dateIni + datetime.timedelta(days=n)
-        weekNum = dateNew.weekday()
-        weekName = dateNew.strftime("%A")
+        #weekNum = dateNew.weekday()
+        #weekName = dateNew.strftime("%A")
         dateFormat = dateNew.strftime("%d/%m/%Y")
         #dateName = dateNew.strftime("%#d de %B de %Y")
-        dateName = dateFullLang(dateNew)
+        dateResp = dateFullLang(dateNew, 1)
+        dateName = dateResp[0]
+        weekName = dateResp[1]
         if n == 0:
             status = 'não conta'
         else: 

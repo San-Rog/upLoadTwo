@@ -4,4 +4,4 @@ pandas
 streamlit
 datetime
 io
-clipboard=0.0.4
+copykitten=1.2.2

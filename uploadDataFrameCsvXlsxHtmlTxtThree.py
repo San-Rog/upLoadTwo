@@ -193,7 +193,7 @@ def iniVars():
             label=keys[7],
             use_container_width=True,
             help=labels[keys[7]][1], 
-            icon=labels[keys[7][2]
+            icon=labels[keys[7]][2]
         ):
             toErase()
         

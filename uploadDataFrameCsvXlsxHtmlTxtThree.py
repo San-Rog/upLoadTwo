@@ -9,6 +9,7 @@ from io import BytesIO
 from os import path
 import os
 import streamlit.components.v1 as components
+import copykitten
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]

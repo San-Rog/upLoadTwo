@@ -193,7 +193,7 @@ def iniVars():
             icon=labels[keys[5]][2]
         )
         #Clipboard_in
-        if clipboard_in.button(
+        if colInClip.button(
             label=keys[6],
             use_container_width=True, 
             help=labels[keys[7]][1], 

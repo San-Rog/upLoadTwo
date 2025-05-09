@@ -10,8 +10,14 @@ from os import path
 import os
 import streamlit.components.v1 as components
 
-def dateFullLang():
-    pass
+def dateFullLang(date):
+    dayStr = date.day
+    monthNum = date.month
+    monthStr = months[monthNum]
+    yearStr = date.year
+    weekNum = date.strftime("%w")
+    weekStr = weeks[weekNum]
+    st.write(dayStr, monthStr, yearStr, weekStr)
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]
@@ -19,6 +25,7 @@ def countCurUseFul(dateTuple):
     mode = dateTuple[2]
     expr = dateTuple[3]
     dateIniStr = dateIni.strftime("%d/%m/%Y")
+    dateFullLang(dateIniStr)
     dateIniName = dateIni.strftime("%#d de %B de %Y")
     data_atual = datetime.datetime.today()
     st.write(data_atual.day)
@@ -219,8 +226,12 @@ def main():
     keyCurrent = ['dia do mês', 'dias da semana', 
                   'condição', 'sequencial', 'contador geral']
     dateCurrUse = {key:[] for key in keyCurrent}
-    months = {}
-    weeks = {}
+    months = {1: 'janeiro', 2: fevereiro', 3: 'março', 
+              4: 'abril', 5:'maio', 6: 'junho', 
+              7: 'julho', 8: 'agosto', 9: 'setembro', 
+              10: 'outubro', 11: 'novembro', 12: 'dezembro'}
+    weeks = {0: 'domingo', 1: 'segunda-feira', 3: 'terça-feira', 
+            4: 'quarta-feira', 5: 'sexta-feira', 6: 'domingo'}
     dateNow = datetime.date.today()
     d = date(2025, 5, 9)
     #args = [(d, 12, 0, 'Contagem em dias corridos', 'Demonstrativo 1'), 

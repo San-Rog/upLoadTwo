@@ -234,7 +234,7 @@ def main():
     months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5:'maio', 6: 'junho', 
               7: 'julho', 8: 'agosto', 9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
     weeks = {0: 'domingo', 1: 'segunda-feira', 2: 'terça-feira', 
-             3: 'quarta-feira', 4: 'sexta-feira', 5: 'domingo'}
+             3: 'quarta-feira', 4: 'sexta-feira', 5: 'sábado'}
     dateNow = datetime.date.today()
     d = date(2025, 5, 9)
     #args = [(d, 12, 0, 'Contagem em dias corridos', 'Demonstrativo 1'), 

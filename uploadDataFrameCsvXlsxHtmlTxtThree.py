@@ -101,8 +101,11 @@ def toTex():
     tex = df.to_latex()
     return tex
 
-def toInClip():
-    txt = df.to_string(index=False).encode('ISO-8859-1') 
+def toInClip(mode):
+    if mode == 0:
+        txt = df.to_string(index=False).encode('ISO-8859-1') 
+    else:
+        txt = ''
     codeJs = f"""navigator.clipboard.writeText({txt});"""
     jsHtml = f"""
     <script>
@@ -110,16 +113,6 @@ def toInClip():
     </script>
     """
     components.html(jsHtml)
-
-def toOutClip(): 
-    codeJs = f"""navigator.clipboard.readText();"""
-    jsHtml = f"""
-    <script>
-    {codeJs};
-    </script>
-    """
-    txt = components.html(jsHtml)
-    return txt
     
 def iniVars():
     labels = {'csv':['dfTable.csv', "Download da tabela para o formato 'csv'.", ":material/download:"], 
@@ -128,15 +121,15 @@ def iniVars():
               'txt': ['dfTable.txt', "Download da tabela para o formato 'txt'.", ":material/download:"], 
               'json': ['dfTable.json', "Download da tabela para o formato 'json'.", ":material/download:"], 
               'latex': ['dfTable.tex', "Download da tabela para o formato 'tex'.", ":material/download:"], 
-              'clipboard_in': ['', "Envia os dados da tabela para a área de transferência.", ":material/assignment:"], 
-              'clipboard_out': ['cliboard.txt', "Extrai os dados da área de transferência e grava-os como 'txt'.", ":material/output:"]
+              'clipboard': ['', "Envia os dados da tabela para a área de transferência.", ":material/assignment:"], 
+              'clear': ['', "Limpa a área de transferência.", ":material/mpo:"]
              }
     keys = list(labels.keys())
     with st.container(border=False):
         st.markdown(f":point_right: **:blue[opções]**")
         #Csv
         colCsv, colPkl, colHtml, colString = st.columns(spec=4, gap='small', vertical_alignment='center', border=False)
-        colJson, colLatex, colInClip, colOutClip = st.columns(spec=4, gap='small', vertical_alignment='top', border=False)
+        colJson, colLatex, colClip, colClear = st.columns(spec=4, gap='small', vertical_alignment='top', border=False)
         colCsv.download_button(
             label=keys[0],
             use_container_width=True, 
@@ -192,23 +185,22 @@ def iniVars():
             help=labels[keys[5]][1], 
             icon=labels[keys[5]][2]
         )
-        #Clipboard_in
-        if colInClip.button(
+        #Clipboard
+        if colClip.button(
             label=keys[6],
             use_container_width=True, 
             help=labels[keys[6]][1], 
             icon=labels[keys[6]][2]
         ):
-            toInClip()        
-        #Clipboard_out
-        colOutClip.download_button(
+            toInClip(0)        
+        #Clear
+        if colClear.button(
             label=keys[7],
             use_container_width=True, 
-            data=toOutClip(),
-            file_name=labels[keys[7]][0], 
             help=labels[keys[7]][1], 
             icon=labels[keys[7]][2]
-        )
+        ):
+            toInClip(1) 
         
 def main():
     global output, dirRoot

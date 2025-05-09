@@ -3,13 +3,13 @@ import locale
 import pandas as pd
 import streamlit as st
 import datetime
+import pyperclip
 from datetime import date
 from datetime import timedelta
 from io import BytesIO
 from os import path
 import os
 import streamlit.components.v1 as components
-import pyperclip
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]

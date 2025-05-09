@@ -16,6 +16,7 @@ def dateFullLang(date):
     monthStr = months[monthNum]
     yearStr = date.year
     weekNum = int(date.strftime("%w"))
+    st.write(weekNum)
     weekStr = weeks[weekNum]
     dateFull = f'{dayStr} de {monthStr} de {yearStr}'
     st.write(dayStr, monthStr, yearStr, weekNum, weekStr)

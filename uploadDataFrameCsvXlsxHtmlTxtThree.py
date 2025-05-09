@@ -15,9 +15,9 @@ def dateFullLang(date):
     monthNum = date.month
     monthStr = months[monthNum]
     yearStr = date.year
-    weekNum = date.strftime("%w")
-    #weekStr = weeks[weekNum]
-    st.write(dayStr, monthStr, yearStr, weekNum, type(weekNum))
+    weekNum = int(date.strftime("%w"))
+    weekStr = weeks[weekNum]
+    st.write(dayStr, monthStr, yearStr, weekNum, weekStr)
 
 def countCurUseFul(dateTuple):
     dateIni = dateTuple[0]

@@ -46,7 +46,8 @@ def countCurUseFul(dateTuple):
         weekNum = dateNew.weekday()
         weekName = dateNew.strftime("%A")
         dateFormat = dateNew.strftime("%d/%m/%Y")
-        dateName = dateNew.strftime("%#d de %B de %Y")
+        #dateName = dateNew.strftime("%#d de %B de %Y")
+        dateName = dateFullLang(dateNew)
         if n == 0:
             status = 'não conta'
         else: 

@@ -196,8 +196,8 @@ def iniVars():
         if colInClip.button(
             label=keys[6],
             use_container_width=True, 
-            help=labels[keys[7]][1], 
-            icon=labels[keys[7]][2]
+            help=labels[keys[6]][1], 
+            icon=labels[keys[6]][2]
         ):
             toInClip()        
         #Clipboard_out

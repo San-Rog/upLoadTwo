@@ -136,7 +136,7 @@ def iniVars():
         st.markdown(f":point_right: **:blue[opções]**")
         #Csv
         colCsv, colPkl, colHtml, colString = st.columns(spec=4, gap='small', vertical_alignment='center', border=False)
-        colJson, colLatex, colInClip, colOutClipt = st.columns(spec=4, gap='small', vertical_alignment='top', border=False)
+        colJson, colLatex, colInClip, colOutClip = st.columns(spec=4, gap='small', vertical_alignment='top', border=False)
         colCsv.download_button(
             label=keys[0],
             use_container_width=True, 

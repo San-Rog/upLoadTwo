@@ -68,7 +68,7 @@ def toPickle():
     return pkl
 
 def toHtml():
-    htmlText = df.to_html(index=False).encode('ISO-8859-1')
+    htmlText = df.to_html(index=False)
     hmtlPlus = """
     <style>
         .button {

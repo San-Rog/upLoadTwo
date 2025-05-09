@@ -31,10 +31,6 @@ def countCurUseFul(dateTuple):
     dateIniStr = dateIni.strftime("%d/%m/%Y")
     dateIniName = dateFullLang(dateIni, 0)
     data_atual = datetime.datetime.today()
-    st.write(data_atual.day)
-    st.write(data_atual.month)
-    st.write(data_atual.year)
-    st.write(data_atual.strftime("%w"))
     count = 0 
     n = 0 
     colStart, colDays, colCrit = st.columns(spec=3, gap='small', vertical_alignment='top', border=True)

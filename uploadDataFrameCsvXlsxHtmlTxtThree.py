@@ -46,7 +46,7 @@ def countCurUseFul(dateTuple):
     colCrit.markdown(f"**Critério**: ***:blue-background[{expr}]***")
     while count < num:
         dateNew = dateIni + datetime.timedelta(days=n)
-        #weekNum = dateNew.weekday()
+        weekNum = dateNew.weekday()
         #weekName = dateNew.strftime("%A")
         dateFormat = dateNew.strftime("%d/%m/%Y")
         #dateName = dateNew.strftime("%#d de %B de %Y")
